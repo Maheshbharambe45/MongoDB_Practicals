@@ -1,0 +1,23 @@
+//To create database
+use employee;
+
+//To create collection
+db.createCollection("emp_personal_details");
+
+//To insert data into database
+db.emp_personal_details.insertOne(
+    {
+        emp_id: "EMP001",
+        emp_name: "John Doe",
+        emp_address: "123 Main St, Anytown",
+        emp_DOB: ISODate("1990-05-15"), // Using ISODate for date fields
+        emp_age: 34,
+        emp_mobilenumber: "123-456-7890"
+    }
+);
+
+//To show data
+db.emp_personal_details.find()
+
+//To show collections
+show collections
