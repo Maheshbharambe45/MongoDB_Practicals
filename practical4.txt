@@ -1,0 +1,56 @@
+// create to the 'employee_new' database.
+use employee;
+
+// create the 'emp_personal_details' collection.
+db.createCollection("emp_personal_details");
+
+// Insert sample records into 'emp_personal_details'.
+db.emp_personal_details.insertMany([
+    {
+        emp_id: "EMP001",
+        emp_name: "Elderly Alice",
+        emp_address: "101 Retirement Home",
+        emp_DOB: ISODate("1960-01-01"), // Age 65 (approx)
+        emp_age: 65,
+        emp_mobilenumber: "111-222-3333"
+    },
+    {
+        emp_id: "EMP002",
+        emp_name: "Young Bob",
+        emp_address: "202 City Apartment",
+        emp_DOB: ISODate("1990-05-15"), // Age 35 (approx)
+        emp_age: 35,
+        emp_mobilenumber: "444-555-6666"
+    },
+    {
+        emp_id: "EMP003",
+        emp_name: "Senior Charlie",
+        emp_address: "303 Quiet Lane",
+        emp_DOB: ISODate("1964-07-10"), // Age 61 (approx)
+        emp_age: 61,
+        emp_mobilenumber: "777-888-9999"
+    },
+    {
+        emp_id: "EMP004",
+        emp_name: "Middle Anna",
+        emp_address: "404 Main Street",
+        emp_DOB: ISODate("1975-03-20"), // Age 50 (approx)
+        emp_age: 50,
+        emp_mobilenumber: "123-987-6543"
+    }
+]);
+
+// Display records
+db.emp_personal_details.find()
+
+// Update the 'emp_personal_details' collection:
+db.emp_personal_details.updateMany(
+    { emp_age: { $gt: 60 } },
+    { $set: { status: "retired" } }
+);
+
+// Display the 'emp_personal_details' collection after the update.
+db.emp_personal_details.find()
+
+// List all collections 
+show collections;

@@ -1,0 +1,55 @@
+//To create database.
+use employee;
+
+//create the 'emp_personal_details' collection.
+db.createCollection("emp_personal_details");
+
+// Insert records into the 'emp_professional_details' collection.
+db.emp_professional_details.insertMany([
+    {
+        emp_id: "EMP001",
+        emp_name: "Alice Wonderland",
+        designation: "Software Engineer",
+        salary: 75000,
+        incentive: 5000,
+        working_hours: 8
+    },
+    {
+        emp_id: "EMP002",
+        emp_name: "Bob The Builder",
+        designation: "Project Manager",
+        salary: 90000,
+        incentive: 7500,
+        working_hours: 9
+    },
+    {
+        emp_id: "EMP003",
+        emp_name: "Charlie Chaplin",
+        designation: "HR Specialist",
+        salary: 60000,
+        incentive: 3000,
+        working_hours: 7
+    },
+    {
+        emp_id: "EMP004",
+        emp_name: "Diana Prince",
+        designation: "Data Analyst",
+        salary: 70000,
+        incentive: 4000,
+        working_hours: 8
+    },
+    {
+        emp_id: "EMP005",
+        emp_name: "Eve Harrington",
+        designation: "Marketing Lead",
+        salary: 80000,
+        incentive: 6000,
+        working_hours: 8
+    }
+]);
+
+//To show the data
+db.emp_professional_details.find()
+
+// List all collections
+show collections;

@@ -1,0 +1,187 @@
+//create'employee' database.
+use employee;
+
+//create the 'emp_personal_details' collection.
+db.createCollection("emp_personal_details");
+
+// Insert 10 sample records into the 'emp_personal_details' collection.
+db.emp_personal_details.insertMany([
+    {
+        emp_id: "EMP001",
+        emp_name: "Alice Wonderland",
+        emp_address: "123 Fantasy Lane, Storybook City",
+        emp_DOB: ISODate("1992-03-20"), // Use ISODate for date fields
+        emp_age: 33,
+        emp_mobilenumber: "555-111-2222"
+    },
+    {
+        emp_id: "EMP002",
+        emp_name: "Bob The Builder",
+        emp_address: "456 Construction Site, Tool Town",
+        emp_DOB: ISODate("1985-07-01"),
+        emp_age: 40,
+        emp_mobilenumber: "555-333-4444"
+    },
+    {
+        emp_id: "EMP003",
+        emp_name: "Charlie Chaplin",
+        emp_address: "789 Comedy Street, Filmville",
+        emp_DOB: ISODate("1980-01-10"),
+        emp_age: 45,
+        emp_mobilenumber: "555-555-6666"
+    },
+    {
+        emp_id: "EMP004",
+        emp_name: "Diana Prince",
+        emp_address: "101 Amazon Way, Themyscira",
+        emp_DOB: ISODate("1983-06-25"),
+        emp_age: 42,
+        emp_mobilenumber: "555-777-8888"
+    },
+    {
+        emp_id: "EMP005",
+        emp_name: "Eve Harrington",
+        emp_address: "202 Broadway Ave, Star City",
+        emp_DOB: ISODate("1995-09-12"),
+        emp_age: 30,
+        emp_mobilenumber: "555-999-0000"
+    },
+    {
+        emp_id: "EMP006",
+        emp_name: "Frank Green",
+        emp_address: "303 Nature Path, Forest Town",
+        emp_DOB: ISODate("1987-04-03"),
+        emp_age: 38,
+        emp_mobilenumber: "555-123-4567"
+    },
+    {
+        emp_id: "EMP007",
+        emp_name: "Grace Hopper",
+        emp_address: "404 Code Lane, Silicon Valley",
+        emp_DOB: ISODate("1970-12-09"),
+        emp_age: 55,
+        emp_mobilenumber: "555-234-5678"
+    },
+    {
+        emp_id: "EMP008",
+        emp_name: "Ivy League",
+        emp_address: "505 University Blvd, Knowledge City",
+        emp_DOB: ISODate("1998-02-18"),
+        emp_age: 27,
+        emp_mobilenumber: "555-345-6789"
+    },
+    {
+        emp_id: "EMP009",
+        emp_name: "Jack Sparrow",
+        emp_address: "606 Pirate Cove, Treasure Island",
+        emp_DOB: ISODate("1975-08-07"),
+        emp_age: 50,
+        emp_mobilenumber: "555-456-7890"
+    },
+    {
+        emp_id: "EMP010",
+        emp_name: "Karen White",
+        emp_address: "707 Peaceful Place, Harmony Town",
+        emp_DOB: ISODate("1993-11-01"),
+        emp_age: 32,
+        emp_mobilenumber: "555-567-8901"
+    }
+]);
+
+
+
+
+// Insert 10 sample records into the 'emp_professional_details' collection.
+db.emp_professional_details.insertMany([
+    {
+        emp_id: "EMP001",
+        emp_name: "Alice Wonderland",
+        designation: "Software Engineer",
+        salary: 75000,
+        incentive: 5000,
+        working_hours: 8
+    },
+    {
+        emp_id: "EMP002",
+        emp_name: "Bob The Builder",
+        designation: "Project Manager",
+        salary: 90000,
+        incentive: 7500,
+        working_hours: 9
+    },
+    {
+        emp_id: "EMP003",
+        emp_name: "Charlie Chaplin",
+        designation: "HR Specialist",
+        salary: 60000,
+        incentive: 3000,
+        working_hours: 7
+    },
+    {
+        emp_id: "EMP004",
+        emp_name: "Diana Prince",
+        designation: "Data Analyst",
+        salary: 70000,
+        incentive: 4000,
+        working_hours: 8
+    },
+    {
+        emp_id: "EMP005",
+        emp_name: "Eve Harrington",
+        designation: "Marketing Lead",
+        salary: 80000,
+        incentive: 6000,
+        working_hours: 8
+    },
+    {
+        emp_id: "EMP006",
+        emp_name: "Frank Green",
+        designation: "QA Engineer",
+        salary: 65000,
+        incentive: 3500,
+        working_hours: 8
+    },
+    {
+        emp_id: "EMP007",
+        emp_name: "Grace Hopper",
+        designation: "Sales Executive",
+        salary: 70000,
+        incentive: 8000,
+        working_hours: 8
+    },
+    {
+        emp_id: "EMP008",
+        emp_name: "Ivy League",
+        designation: "Accountant",
+        salary: 55000,
+        incentive: 2000,
+        working_hours: 7
+    },
+    {
+        emp_id: "EMP009",
+        emp_name: "Jack Sparrow",
+        designation: "Manager", // This record is for the "designation manager" query
+        salary: 95000,
+        incentive: 10000,
+        working_hours: 9
+    },
+    {
+        emp_id: "EMP010",
+        emp_name: "Karen White",
+        designation: "Intern",
+        salary: 6000, // This record is for the "salary 6000" query
+        incentive: 500,
+        working_hours: 6
+    }
+]);
+
+
+
+// Show all employees having designation "Manager".
+db.emp_professional_details.find({ designation: "Manager" })
+
+// Show all employees having salary 6000.
+db.emp_professional_details.find({ salary: 6000 })
+
+// show collections
+show collections;
